@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Automagy - عالم الذكاء الاصطناعي والأتمتة</title>
+
+  <title>Automagy | الذكاء الاصطناعي والأتمتة</title>
 
   <style>
     * {
@@ -18,21 +19,21 @@
 
     body {
       font-family: Arial, sans-serif;
-      background: #0f172a;
+      background: #0b1220;
       color: white;
       line-height: 1.8;
     }
 
     header {
-      background: rgba(15, 23, 42, 0.95);
-      padding: 18px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       position: sticky;
       top: 0;
-      z-index: 100;
-      border-bottom: 1px solid #26334d;
+      z-index: 999;
+      background: rgba(11, 18, 32, 0.96);
+      border-bottom: 1px solid #26344d;
+      padding: 16px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .logo {
@@ -42,10 +43,10 @@
     }
 
     nav a {
-      color: white;
+      color: #e2e8f0;
       text-decoration: none;
-      margin-right: 20px;
-      font-size: 16px;
+      margin-right: 18px;
+      font-size: 15px;
     }
 
     nav a:hover {
@@ -54,163 +55,210 @@
 
     .hero {
       min-height: 650px;
+      padding: 80px 6%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 70px 20px;
-      background: linear-gradient(180deg, #0f172a, #111c35);
+      background:
+        radial-gradient(circle at top, #18304d, transparent 55%),
+        #0b1220;
     }
 
-    .hero small {
+    .badge {
       color: #38bdf8;
-      font-size: 24px;
-      font-weight: bold;
-      letter-spacing: 2px;
+      border: 1px solid #38bdf8;
+      border-radius: 50px;
+      padding: 6px 18px;
+      margin-bottom: 20px;
+      font-size: 14px;
     }
 
     .hero h1 {
-      font-size: clamp(42px, 8vw, 76px);
-      margin: 15px 0;
+      font-size: clamp(42px, 9vw, 80px);
+      margin-bottom: 15px;
+    }
+
+    .hero h1 span {
+      color: #38bdf8;
     }
 
     .hero p {
-      max-width: 700px;
+      max-width: 720px;
       color: #cbd5e1;
-      font-size: 20px;
+      font-size: 19px;
       margin-bottom: 30px;
     }
 
     .btn {
       display: inline-block;
       background: #38bdf8;
-      color: #07111f;
-      padding: 14px 32px;
+      color: #06111d;
+      padding: 14px 28px;
       border-radius: 12px;
       text-decoration: none;
-      font-size: 18px;
       font-weight: bold;
       transition: 0.3s;
     }
 
     .btn:hover {
-      transform: translateY(-3px);
+      transform: translateY(-4px);
       background: #7dd3fc;
     }
 
     section {
-      padding: 75px 7%;
+      padding: 75px 6%;
     }
 
-    .section-title {
+    .title {
       text-align: center;
-      margin-bottom: 45px;
+      margin-bottom: 40px;
     }
 
-    .section-title h2 {
-      font-size: 36px;
-      margin-bottom: 10px;
+    .title h2 {
+      font-size: 35px;
+      margin-bottom: 8px;
     }
 
-    .section-title p {
+    .title p {
       color: #94a3b8;
     }
 
-    .cards {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 22px;
     }
 
     .card {
-      background: #172238;
-      border: 1px solid #26334d;
+      background: #131f33;
+      border: 1px solid #263750;
       border-radius: 18px;
-      padding: 28px;
+      padding: 25px;
       transition: 0.3s;
     }
 
     .card:hover {
-      transform: translateY(-7px);
+      transform: translateY(-8px);
       border-color: #38bdf8;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
     }
 
     .icon {
       font-size: 42px;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
 
     .card h3 {
       color: #38bdf8;
-      margin-bottom: 10px;
-      font-size: 23px;
+      margin-bottom: 8px;
     }
 
     .card p {
       color: #cbd5e1;
     }
 
-    .articles {
-      background: #111827;
-    }
-
-    .article {
-      background: #1e293b;
-      border-radius: 16px;
-      padding: 25px;
-      border: 1px solid #334155;
-    }
-
-    .article h3 {
-      font-size: 22px;
-      margin-bottom: 12px;
-    }
-
-    .article p {
-      color: #cbd5e1;
-      margin-bottom: 15px;
-    }
-
-    .read {
+    .tool-link {
+      display: inline-block;
+      margin-top: 15px;
       color: #38bdf8;
       text-decoration: none;
       font-weight: bold;
     }
 
+    .search-box {
+      max-width: 600px;
+      margin: 0 auto 35px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 16px 20px;
+      border-radius: 12px;
+      border: 1px solid #334155;
+      outline: none;
+      background: #111c2e;
+      color: white;
+      font-size: 16px;
+    }
+
+    .search-box input:focus {
+      border-color: #38bdf8;
+    }
+
+    .articles {
+      background: #0f192b;
+    }
+
+    .article {
+      background: #16243a;
+      border-radius: 18px;
+      padding: 25px;
+      border: 1px solid #2a3b55;
+    }
+
+    .article .date {
+      color: #38bdf8;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .article h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .article p {
+      color: #cbd5e1;
+    }
+
     .about {
-      text-align: center;
       max-width: 850px;
       margin: auto;
+      text-align: center;
     }
 
     .about p {
       color: #cbd5e1;
-      font-size: 19px;
+      font-size: 18px;
     }
 
-    .contact {
+    .cta {
       text-align: center;
-      background: #0b1222;
+      background: linear-gradient(135deg, #10233c, #0b1220);
     }
 
     footer {
       text-align: center;
-      padding: 25px;
-      background: #080e1a;
+      padding: 30px 20px;
       color: #94a3b8;
-      border-top: 1px solid #26334d;
+      border-top: 1px solid #26344d;
+    }
+
+    .social {
+      margin-top: 15px;
+    }
+
+    .social a {
+      color: #38bdf8;
+      text-decoration: none;
+      margin: 0 8px;
     }
 
     @media (max-width: 700px) {
       header {
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
+      }
+
+      nav {
+        text-align: center;
       }
 
       nav a {
-        margin: 0 7px;
-        font-size: 14px;
+        margin: 0 5px;
+        font-size: 13px;
       }
 
       .hero {
@@ -230,163 +278,312 @@
 
 <body>
 
-  <header>
-    <div class="logo">AUTOMAGY</div>
+<header>
 
-    <nav>
-      <a href="#home">الرئيسية</a>
-      <a href="#tools">الأدوات</a>
-      <a href="#articles">المقالات</a>
-      <a href="#about">من نحن</a>
-      <a href="#contact">تواصل</a>
-    </nav>
-  </header>
+  <div class="logo">AUTOMAGY</div>
 
-  <main>
+  <nav>
+    <a href="#home">الرئيسية</a>
+    <a href="#tools">الأدوات</a>
+    <a href="#articles">المقالات</a>
+    <a href="#about">من نحن</a>
+  </nav>
 
-    <section class="hero" id="home">
-      <small>WELCOME TO AUTOMAGY</small>
+</header>
 
-      <h1>مرحباً بك في Automagy</h1>
+
+<section class="hero" id="home">
+
+  <div class="badge">🚀 AUTOMAGY 2.0</div>
+
+  <h1>
+    عالم <span>الذكاء الاصطناعي</span>
+    والأتمتة
+  </h1>
+
+  <p>
+    اكتشف أدوات الذكاء الاصطناعي، تعلم الأتمتة،
+    وابدأ مشاريعك التقنية خطوة بخطوة.
+  </p>
+
+  <a href="#tools" class="btn">
+    اكتشف الأدوات ↓
+  </a>
+
+</section>
+
+
+<section id="tools">
+
+  <div class="title">
+
+    <h2>🧰 أدوات الذكاء الاصطناعي</h2>
+
+    <p>
+      مجموعة من الأدوات التي يمكن أن تساعدك في العمل والتعلم والإبداع
+    </p>
+
+  </div>
+
+
+  <div class="search-box">
+
+    <input
+      type="text"
+      id="search"
+      placeholder="🔎 ابحث عن أداة..."
+      onkeyup="searchTools()"
+    >
+
+  </div>
+
+
+  <div class="grid" id="toolsGrid">
+
+    <div class="card tool">
+      <div class="icon">🤖</div>
+      <h3>ChatGPT</h3>
+      <p>
+        مساعد ذكي يساعدك في الكتابة والتعلم والبرمجة
+        وتوليد الأفكار.
+      </p>
+      <a class="tool-link"
+         href="https://chatgpt.com/"
+         target="_blank">
+        زيارة الأداة →
+      </a>
+    </div>
+
+
+    <div class="card tool">
+      <div class="icon">🎨</div>
+      <h3>Canva</h3>
+      <p>
+        إنشاء تصاميم وصور ومنشورات بطريقة سهلة وسريعة.
+      </p>
+      <a class="tool-link"
+         href="https://www.canva.com/"
+         target="_blank">
+        زيارة الأداة →
+      </a>
+    </div>
+
+
+    <div class="card tool">
+      <div class="icon">⚡</div>
+      <h3>Zapier</h3>
+      <p>
+        أتمتة المهام وربط التطبيقات والخدمات مع بعضها.
+      </p>
+      <a class="tool-link"
+         href="https://zapier.com/"
+         target="_blank">
+        زيارة الأداة →
+      </a>
+    </div>
+
+
+    <div class="card tool">
+      <div class="icon">🧠</div>
+      <h3>Gemini</h3>
+      <p>
+        مساعد ذكاء اصطناعي من Google للبحث والتفكير وإنشاء المحتوى.
+      </p>
+      <a class="tool-link"
+         href="https://gemini.google.com/"
+         target="_blank">
+        زيارة الأداة →
+      </a>
+    </div>
+
+
+    <div class="card tool">
+      <div class="icon">💻</div>
+      <h3>GitHub</h3>
+      <p>
+        منصة مهمة للمبرمجين لحفظ المشاريع والتعاون وتطوير البرمجيات.
+      </p>
+      <a class="tool-link"
+         href="https://github.com/"
+         target="_blank">
+        زيارة المنصة →
+      </a>
+    </div>
+
+
+    <div class="card tool">
+      <div class="icon">🔧</div>
+      <h3>Make</h3>
+      <p>
+        بناء عمليات أتمتة وربط الخدمات بدون الحاجة إلى برمجة معقدة.
+      </p>
+      <a class="tool-link"
+         href="https://www.make.com/"
+         target="_blank">
+        زيارة الأداة →
+      </a>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="articles" id="articles">
+
+  <div class="title">
+
+    <h2>📝 مقالات Automagy</h2>
+
+    <p>
+      تعلم بطريقة بسيطة ومباشرة
+    </p>
+
+  </div>
+
+
+  <div class="grid">
+
+    <div class="article">
+
+      <div class="date">مقال 01</div>
+
+      <h3>
+        🤖 كيف يمكن للذكاء الاصطناعي أن يساعدك؟
+      </h3>
 
       <p>
-        منصتك لاكتشاف عالم الذكاء الاصطناعي والأتمتة،
-        وتعلّم الأدوات والتقنيات التي تساعدك على إنجاز المزيد بوقت أقل.
+        الذكاء الاصطناعي أصبح أداة قوية لإنجاز العديد
+        من المهام اليومية بسرعة أكبر، من الكتابة إلى
+        البرمجة وتحليل المعلومات.
       </p>
 
-      <a class="btn" href="#tools">اكتشف المزيد</a>
-    </section>
+    </div>
 
 
-    <section id="tools">
+    <div class="article">
 
-      <div class="section-title">
-        <h2>🚀 ماذا ستجد هنا؟</h2>
-        <p>كل ما تحتاجه لتبدأ رحلتك في عالم التقنية</p>
-      </div>
+      <div class="date">مقال 02</div>
 
-      <div class="cards">
+      <h3>
+        ⚙️ ما هي الأتمتة؟
+      </h3>
 
-        <div class="card">
-          <div class="icon">🤖</div>
-          <h3>الذكاء الاصطناعي</h3>
-          <p>
-            اكتشف أدوات الذكاء الاصطناعي وكيفية استخدامها
-            في العمل والدراسة والمشاريع.
-          </p>
-        </div>
+      <p>
+        الأتمتة تعني جعل المهام المتكررة تعمل بشكل تلقائي،
+        مما يساعدك على توفير الوقت والتركيز على الأشياء المهمة.
+      </p>
 
-        <div class="card">
-          <div class="icon">⚙️</div>
-          <h3>الأتمتة</h3>
-          <p>
-            تعلّم كيف تجعل المهام المتكررة تعمل بشكل تلقائي
-            وتوفر وقتك وجهدك.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon">💻</div>
-          <h3>التقنية</h3>
-          <p>
-            شروحات وأفكار بسيطة تساعدك على فهم التقنيات
-            الحديثة خطوة بخطوة.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="icon">🚀</div>
-          <h3>المشاريع</h3>
-          <p>
-            أفكار مشاريع عملية يمكنك تنفيذها وتطويرها
-            باستعمال أدوات الذكاء الاصطناعي.
-          </p>
-        </div>
-
-      </div>
-    </section>
+    </div>
 
 
-    <section class="articles" id="articles">
+    <div class="article">
 
-      <div class="section-title">
-        <h2>📝 أحدث المقالات</h2>
-        <p>محتوى بسيط ومفيد للمبتدئين</p>
-      </div>
+      <div class="date">مقال 03</div>
 
-      <div class="cards">
+      <h3>
+        🚀 كيف تبدأ مشروعك الأول؟
+      </h3>
 
-        <div class="article">
-          <h3>🤖 ما هو الذكاء الاصطناعي؟</h3>
-          <p>
-            تعرف على مفهوم الذكاء الاصطناعي وكيف أصبح جزءاً
-            مهماً من حياتنا اليومية.
-          </p>
-          <a class="read" href="#contact">اقرأ المزيد ←</a>
-        </div>
+      <p>
+        ابدأ بفكرة صغيرة، اختر الأدوات المناسبة،
+        ثم قم بتطوير المشروع خطوة بخطوة حتى تحصل
+        على نتيجة حقيقية.
+      </p>
 
-        <div class="article">
-          <h3>⚡ كيف تبدأ في الأتمتة؟</h3>
-          <p>
-            خطوات بسيطة تساعدك على فهم الأتمتة وإنشاء
-            أول مشروع آلي خاص بك.
-          </p>
-          <a class="read" href="#contact">اقرأ المزيد ←</a>
-        </div>
+    </div>
 
-        <div class="article">
-          <h3>💡 أفضل طريقة لاستعمال AI</h3>
-          <p>
-            مجموعة من الأفكار العملية لاستعمال أدوات الذكاء
-            الاصطناعي بطريقة أكثر فعالية.
-          </p>
-          <a class="read" href="#contact">اقرأ المزيد ←</a>
-        </div>
+  </div>
 
-      </div>
-    </section>
+</section>
 
 
-    <section id="about">
+<section id="about">
 
-      <div class="about">
+  <div class="about">
 
-        <div class="section-title">
-          <h2>🌟 عن Automagy</h2>
-        </div>
+    <div class="title">
 
-        <p>
-          Automagy هو مشروع يهدف إلى تبسيط عالم الذكاء الاصطناعي
-          والأتمتة للمبتدئين، من خلال شروحات سهلة وأفكار مشاريع
-          وأدوات مفيدة.
-        </p>
+      <h2>🌟 عن Automagy</h2>
 
-      </div>
+    </div>
 
-    </section>
+    <p>
+      Automagy مشروع عربي يهدف إلى تبسيط عالم الذكاء الاصطناعي
+      والأتمتة، ومساعدة المبتدئين على اكتشاف الأدوات والتقنيات
+      الجديدة بطريقة سهلة وعملية.
+    </p>
 
+  </div>
 
-    <section class="contact" id="contact">
-
-      <div class="section-title">
-        <h2>📩 تواصل معنا</h2>
-        <p>
-          عندك فكرة أو اقتراح للموقع؟ تابع تطوير Automagy.
-        </p>
-      </div>
-
-      <a class="btn" href="mailto:contact@automagy.com">
-        راسلنا
-      </a>
-
-    </section>
-
-  </main>
+</section>
 
 
-  <footer>
-    © 2026 Automagy — جميع الحقوق محفوظة
-  </footer>
+<section class="cta">
+
+  <div class="title">
+
+    <h2>🚀 مستعد تبدأ؟</h2>
+
+    <p>
+      اكتشف الأدوات وابدأ أول مشروع لك اليوم.
+    </p>
+
+  </div>
+
+  <a href="#tools" class="btn">
+    ابدأ الآن
+  </a>
+
+</section>
+
+
+<footer>
+
+  <div>
+    © 2026 Automagy
+  </div>
+
+  <div class="social">
+    <a href="https://github.com/elmazarimourad0-gif/automagy"
+       target="_blank">
+      GitHub
+    </a>
+  </div>
+
+</footer>
+
+
+<script>
+
+function searchTools() {
+
+  let input =
+    document.getElementById("search").value.toLowerCase();
+
+  let tools =
+    document.querySelectorAll(".tool");
+
+  tools.forEach(function(tool) {
+
+    let text =
+      tool.innerText.toLowerCase();
+
+    if (text.includes(input)) {
+
+      tool.style.display = "block";
+
+    } else {
+
+      tool.style.display = "none";
+
+    }
+
+  });
+
+}
+
+</script>
 
 </body>
-</html>
+  </html>
