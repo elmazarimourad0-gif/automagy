@@ -122,7 +122,6 @@ nav a:hover{
   font-weight:bold;
   transition:.3s;
 }
-
 .btn:hover{
   transform:translateY(-4px);
   background:#7dd3fc;
@@ -1128,6 +1127,7 @@ window.onclick=function(event){
 
 };
 </script>
+  
   /* ===== AUTOMAGY 5.0 ===== */
 const savedRatings =
   JSON.parse(localStorage.getItem("automagyRatings") || "{}");
@@ -1397,8 +1397,6 @@ function sortTools(type){
   });
 
 }
-
-
 /* تشغيل المرحلة 5 */
 
 document.addEventListener(
@@ -1412,7 +1410,6 @@ function filterTools()
     </html>
 </style>
 /* ===== المرحلة 5 ===== */
-
 .tool-extra{
   margin-top:15px;
   padding-top:12px;
@@ -1562,7 +1559,9 @@ function filterTools()
 
   document.head.appendChild(style);
 <script>
+ 
   /* منع التكرار */
+ 
   if (window.automagy5Started) return;
   window.automagy5Started = true;
 
