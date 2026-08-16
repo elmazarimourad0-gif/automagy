@@ -1485,3 +1485,442 @@ function filterTools()
   background:#38bdf8;
   color:#06111d;
 }
+</body>
+<script>
+(function () {
+
+  const style = document.createElement("style");
+
+  style.innerHTML = `
+    .auto5-box{
+      margin-top:15px;
+      padding-top:12px;
+      border-top:1px solid #263852;
+    }
+
+    .auto5-rating{
+      display:flex;
+      align-items:center;
+      gap:3px;
+      direction:ltr;
+    }
+
+    .auto5-star{
+      background:none;
+      border:0;
+      color:#64748b;
+      font-size:23px;
+      cursor:pointer;
+      padding:0 2px;
+    }
+
+    .auto5-star.active{
+      color:#facc15;
+    }
+
+    .auto5-fav{
+      float:left;
+      background:#1b2b42;
+      border:1px solid #30445f;
+      color:#94a3b8;
+      border-radius:8px;
+      padding:5px 10px;
+      cursor:pointer;
+      font-size:17px;
+    }
+
+    .auto5-fav.active{
+      color:#f43f5e;
+      border-color:#f43f5e;
+    }
+
+    .auto5-text{
+      color:#94a3b8;
+      font-size:11px;
+      margin-right:8px;
+    }
+
+    .auto5-sort{
+      display:flex;
+      justify-content:center;
+      gap:8px;
+      flex-wrap:wrap;
+      margin:0 auto 25px;
+    }
+
+    .auto5-sort button{
+      background:#132238;
+      color:#dbeafe;
+      border:1px solid #30445f;
+      padding:8px 14px;
+      border-radius:20px;
+      cursor:pointer;
+    }
+
+    .auto5-sort button:hover{
+      background:#38bdf8;
+      color:#06111d;
+    }
+  `;
+
+  document.head.appendChild(style);
+
+
+  /* منع التكرار */
+  if (window.automagy5Started) return;
+  window.automagy5Started = true;
+
+
+  let ratings = {};
+
+  let favorites = [];
+
+
+  try {
+
+    ratings =
+      JSON.parse(
+        localStorage.getItem("automagy5Ratings") || "{}"
+      );
+
+    favorites =
+      JSON.parse(
+        localStorage.getItem("automagy5Favorites") || "[]"
+      );
+
+  } catch(e) {
+
+    ratings = {};
+    favorites = [];
+
+  }
+
+
+  const tools =
+    document.querySelectorAll(".tool");
+
+
+  if (!tools.length) return;
+
+
+  /* إضافة التقييم لكل أداة */
+
+  tools.forEach(function(tool){
+
+    if(tool.querySelector(".auto5-box")) return;
+
+
+    const name =
+      tool.dataset.name;
+
+
+    const box =
+      document.createElement("div");
+
+    box.className = "auto5-box";
+
+
+    let stars = "";
+
+
+    for(let i = 1; i <= 5; i++){
+
+      stars += `
+        <button
+          class="auto5-star"
+          data-name="${name}"
+          data-rating="${i}">
+          ★
+        </button>
+      `;
+
+    }
+
+
+    box.innerHTML = `
+
+      <button
+        class="auto5-fav"
+        data-fav="${name}">
+        ♡
+      </button>
+
+      <div class="auto5-rating">
+
+        ${stars}
+
+        <span class="auto5-text">
+          تقييمك: 0/5
+        </span>
+
+      </div>
+
+    `;
+
+
+    tool.appendChild(box);
+
+
+    updateTool(tool);
+
+
+  });
+
+
+  /* الضغط على النجوم */
+
+  document.querySelectorAll(".auto5-star")
+    .forEach(function(star){
+
+      star.addEventListener("click",function(){
+
+        const name =
+          this.dataset.name;
+
+        const rating =
+          Number(this.dataset.rating);
+
+
+        ratings[name] = rating;
+
+
+        localStorage.setItem(
+          "automagy5Ratings",
+          JSON.stringify(ratings)
+        );
+
+
+        const tool =
+          this.closest(".tool");
+
+
+        updateTool(tool);
+
+      });
+
+    });
+
+
+  /* المفضلة */
+
+  document.querySelectorAll(".auto5-fav")
+    .forEach(function(button){
+
+      button.addEventListener("click",function(){
+
+        const name =
+          this.dataset.fav;
+
+
+        if(favorites.includes(name)){
+
+          favorites =
+            favorites.filter(
+              item => item !== name
+            );
+
+        }else{
+
+          favorites.push(name);
+
+        }
+
+
+        localStorage.setItem(
+          "automagy5Favorites",
+          JSON.stringify(favorites)
+        );
+
+
+        updateTool(
+          this.closest(".tool")
+        );
+
+      });
+
+    });
+
+
+  function updateTool(tool){
+
+    if(!tool) return;
+
+
+    const name =
+      tool.dataset.name;
+
+
+    const rating =
+      ratings[name] || 0;
+
+
+    const stars =
+      tool.querySelectorAll(".auto5-star");
+
+
+    stars.forEach(function(star){
+
+      const value =
+        Number(star.dataset.rating);
+
+
+      if(value <= rating){
+
+        star.classList.add("active");
+
+      }else{
+
+        star.classList.remove("active");
+
+      }
+
+    });
+
+
+    const text =
+      tool.querySelector(".auto5-text");
+
+
+    if(text){
+
+      text.textContent =
+        "تقييمك: " + rating + "/5";
+
+    }
+
+
+    const fav =
+      tool.querySelector(".auto5-fav");
+
+
+    if(fav){
+
+      if(favorites.includes(name)){
+
+        fav.classList.add("active");
+        fav.textContent = "♥";
+
+      }else{
+
+        fav.classList.remove("active");
+        fav.textContent = "♡";
+
+      }
+
+    }
+
+  }
+
+
+  /* أزرار الترتيب */
+
+  const categories =
+    document.querySelector(".categories");
+
+
+  if(categories){
+
+    const sort =
+      document.createElement("div");
+
+    sort.className = "auto5-sort";
+
+
+    sort.innerHTML = `
+
+      <button data-sort="normal">
+        🔄 عادي
+      </button>
+
+      <button data-sort="rating">
+        ⭐ الأعلى تقييماً
+      </button>
+
+      <button data-sort="favorite">
+        ❤️ المفضلة
+      </button>
+
+    `;
+
+
+    categories.after(sort);
+
+
+    sort.querySelectorAll("button")
+      .forEach(function(button){
+
+        button.addEventListener("click",function(){
+
+          sortTools(
+            this.dataset.sort
+          );
+
+        });
+
+      });
+
+  }
+
+
+  function sortTools(type){
+
+    const grid =
+      document.querySelector(".grid");
+
+
+    if(!grid) return;
+
+
+    const cards =
+      Array.from(
+        grid.querySelectorAll(".tool")
+      );
+
+
+    if(type === "rating"){
+
+      cards.sort(function(a,b){
+
+        return (
+          (ratings[b.dataset.name] || 0) -
+          (ratings[a.dataset.name] || 0)
+        );
+
+      });
+
+    }
+
+
+    if(type === "favorite"){
+
+      cards.sort(function(a,b){
+
+        const aFav =
+          favorites.includes(
+            a.dataset.name
+          ) ? 1 : 0;
+
+
+        const bFav =
+          favorites.includes(
+            b.dataset.name
+          ) ? 1 : 0;
+
+
+        return bFav - aFav;
+
+      });
+
+    }
+
+
+    cards.forEach(function(card){
+
+      grid.appendChild(card);
+
+    });
+
+  }
+
+})();
+</script>
