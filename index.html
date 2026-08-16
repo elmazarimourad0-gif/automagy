@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Automagy | AI & Automation</title>
+<title>Automagy | الذكاء الاصطناعي والأتمتة</title>
 
 <style>
 *{
@@ -24,14 +24,15 @@ body{
   line-height:1.8;
 }
 
+/* HEADER */
+
 header{
   position:sticky;
   top:0;
   z-index:1000;
-  background:rgba(8,17,31,.96);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid #23334d;
-  padding:15px 6%;
+  background:rgba(8,17,31,.97);
+  border-bottom:1px solid #24344d;
+  padding:14px 6%;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -41,16 +42,15 @@ header{
   color:#38bdf8;
   font-size:27px;
   font-weight:bold;
-  letter-spacing:1px;
 }
 
 nav{
   display:flex;
-  gap:20px;
+  gap:22px;
 }
 
 nav a{
-  color:#dbeafe;
+  color:#e2e8f0;
   text-decoration:none;
   font-size:15px;
 }
@@ -58,6 +58,19 @@ nav a{
 nav a:hover{
   color:#38bdf8;
 }
+
+.menu{
+  display:none;
+  background:#132238;
+  color:white;
+  border:1px solid #334155;
+  border-radius:9px;
+  font-size:24px;
+  padding:4px 10px;
+  cursor:pointer;
+}
+
+/* HERO */
 
 .hero{
   min-height:650px;
@@ -67,21 +80,23 @@ nav a:hover{
   justify-content:center;
   align-items:center;
   text-align:center;
+
   background:
-    radial-gradient(circle at 50% 0%,#173b60,transparent 55%),
-    #08111f;
+  radial-gradient(circle at 50% 0%,#173e63,transparent 55%),
+  #08111f;
 }
 
 .badge{
-  border:1px solid #38bdf8;
   color:#38bdf8;
+  border:1px solid #38bdf8;
   border-radius:50px;
-  padding:7px 20px;
+  padding:6px 20px;
   margin-bottom:25px;
 }
 
 .hero h1{
-  font-size:clamp(40px,8vw,75px);
+  max-width:900px;
+  font-size:clamp(40px,8vw,76px);
   line-height:1.25;
   margin-bottom:20px;
 }
@@ -99,11 +114,11 @@ nav a:hover{
 
 .btn{
   display:inline-block;
-  padding:14px 30px;
   background:#38bdf8;
   color:#06111d;
-  text-decoration:none;
+  padding:14px 30px;
   border-radius:12px;
+  text-decoration:none;
   font-weight:bold;
   transition:.3s;
 }
@@ -112,6 +127,8 @@ nav a:hover{
   transform:translateY(-4px);
   background:#7dd3fc;
 }
+
+/* SECTIONS */
 
 section{
   padding:75px 6%;
@@ -123,7 +140,7 @@ section{
 }
 
 .title h2{
-  font-size:35px;
+  font-size:34px;
   margin-bottom:8px;
 }
 
@@ -131,33 +148,35 @@ section{
   color:#94a3b8;
 }
 
-.categories{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-bottom:30px;
+/* STATS */
+
+.stats{
+  max-width:850px;
+  margin:0 auto 50px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
 }
 
-.category{
-  background:#132238;
-  border:1px solid #2b405d;
-  color:#dbeafe;
-  padding:9px 17px;
-  border-radius:30px;
-  cursor:pointer;
+.stat{
+  background:#111d30;
+  border:1px solid #293b55;
+  border-radius:15px;
+  padding:20px;
+  text-align:center;
 }
 
-.category.active,
-.category:hover{
-  background:#38bdf8;
-  color:#06111d;
-  border-color:#38bdf8;
+.stat strong{
+  display:block;
+  color:#38bdf8;
+  font-size:30px;
 }
+
+/* SEARCH */
 
 .search{
   max-width:650px;
-  margin:0 auto 35px;
+  margin:0 auto 25px;
 }
 
 .search input{
@@ -175,6 +194,33 @@ section{
   border-color:#38bdf8;
 }
 
+/* CATEGORIES */
+
+.categories{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:35px;
+}
+
+.category{
+  background:#132238;
+  color:#dbeafe;
+  border:1px solid #30445f;
+  padding:8px 16px;
+  border-radius:30px;
+  cursor:pointer;
+}
+
+.category:hover,
+.category.active{
+  background:#38bdf8;
+  color:#06111d;
+}
+
+/* CARDS */
+
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -183,7 +229,7 @@ section{
 
 .card{
   background:#111d30;
-  border:1px solid #263a55;
+  border:1px solid #293c57;
   border-radius:18px;
   padding:25px;
   transition:.3s;
@@ -212,22 +258,42 @@ section{
 .tag{
   display:inline-block;
   margin-top:12px;
-  padding:4px 10px;
-  border-radius:20px;
-  background:#1d304a;
+  padding:3px 10px;
+  background:#1c304b;
   color:#7dd3fc;
+  border-radius:20px;
   font-size:12px;
 }
 
-.card button{
-  border:0;
+.card-buttons{
+  display:flex;
+  gap:8px;
   margin-top:18px;
-  padding:10px 17px;
-  border-radius:9px;
-  background:#38bdf8;
-  cursor:pointer;
-  font-weight:bold;
+  flex-wrap:wrap;
 }
+
+.card-buttons a,
+.card-buttons button{
+  padding:9px 13px;
+  border-radius:9px;
+  border:0;
+  cursor:pointer;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:13px;
+}
+
+.visit{
+  background:#38bdf8;
+  color:#06111d;
+}
+
+.details{
+  background:#263a55;
+  color:white;
+}
+
+/* ARTICLES */
 
 .articles{
   background:#0d1728;
@@ -240,14 +306,14 @@ section{
   padding:25px;
 }
 
-.article .number{
+.article-number{
   color:#38bdf8;
-  font-weight:bold;
+  font-size:13px;
 }
 
 .article h3{
-  margin:10px 0;
   font-size:22px;
+  margin:8px 0;
 }
 
 .article p{
@@ -257,10 +323,15 @@ section{
 .read{
   display:inline-block;
   margin-top:15px;
-  color:#38bdf8;
+  background:#38bdf8;
+  color:#06111d;
   text-decoration:none;
+  padding:8px 14px;
+  border-radius:8px;
   font-weight:bold;
 }
+
+/* ABOUT */
 
 .about{
   max-width:850px;
@@ -273,53 +344,38 @@ section{
   font-size:18px;
 }
 
-.stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-  max-width:700px;
-  margin:35px auto 0;
-}
-
-.stat{
-  background:#111d30;
-  border:1px solid #263a55;
-  padding:20px;
-  border-radius:15px;
-}
-
-.stat strong{
-  display:block;
-  color:#38bdf8;
-  font-size:30px;
-}
+/* CTA */
 
 .cta{
   text-align:center;
   background:linear-gradient(135deg,#102b47,#08111f);
 }
 
+/* FOOTER */
+
 footer{
   text-align:center;
   padding:30px 20px;
-  border-top:1px solid #23334d;
   color:#94a3b8;
+  border-top:1px solid #24344d;
 }
+
+/* MODAL */
 
 .modal{
   display:none;
   position:fixed;
   inset:0;
-  z-index:2000;
-  background:rgba(0,0,0,.75);
-  padding:30px 15px;
+  z-index:3000;
+  background:rgba(0,0,0,.78);
   align-items:center;
   justify-content:center;
+  padding:20px;
 }
 
 .modal-box{
   width:100%;
-  max-width:520px;
+  max-width:550px;
   background:#111d30;
   border:1px solid #38bdf8;
   border-radius:20px;
@@ -337,36 +393,59 @@ footer{
 }
 
 .close{
-  display:inline-block;
   margin-top:20px;
   padding:10px 22px;
+  border:0;
+  border-radius:9px;
   background:#263a55;
   color:white;
-  border:0;
-  border-radius:10px;
   cursor:pointer;
 }
+
+/* MOBILE */
 
 @media(max-width:700px){
 
   header{
-    flex-direction:column;
-    gap:12px;
+    padding:13px 5%;
+  }
+
+  .menu{
+    display:block;
   }
 
   nav{
-    gap:12px;
-    flex-wrap:wrap;
-    justify-content:center;
+    display:none;
+    position:absolute;
+    top:64px;
+    right:5%;
+    left:5%;
+    background:#101d30;
+    border:1px solid #293c57;
+    border-radius:14px;
+    padding:15px;
+    flex-direction:column;
+    gap:5px;
+  }
+
+  nav.show{
+    display:flex;
   }
 
   nav a{
-    font-size:13px;
+    display:block;
+    padding:10px;
+    border-bottom:1px solid #22334c;
+    font-size:16px;
+  }
+
+  nav a:last-child{
+    border-bottom:0;
   }
 
   .hero{
-    min-height:620px;
-    padding:70px 5%;
+    min-height:600px;
+    padding:65px 5%;
   }
 
   .hero h1{
@@ -388,6 +467,19 @@ footer{
   .stats{
     grid-template-columns:1fr;
   }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .categories{
+    gap:7px;
+  }
+
+  .category{
+    font-size:13px;
+    padding:7px 12px;
+  }
 }
 </style>
 </head>
@@ -398,7 +490,9 @@ footer{
 
   <div class="logo">AUTOMAGY</div>
 
-  <nav>
+  <button class="menu" onclick="toggleMenu()">☰</button>
+
+  <nav id="nav">
     <a href="#home">الرئيسية</a>
     <a href="#tools">الأدوات</a>
     <a href="#articles">المقالات</a>
@@ -410,16 +504,18 @@ footer{
 
 <section class="hero" id="home">
 
-  <div class="badge">🚀 AUTOMAGY 3.0</div>
+  <div class="badge">🚀 AUTOMAGY 4.0</div>
 
   <h1>
-    اكتشف قوة
+    عالم
     <span>الذكاء الاصطناعي</span>
+    والأتمتة
   </h1>
 
   <p>
-    أدوات ذكية، أتمتة، مقالات وأفكار مشاريع
-    تساعدك على تطوير مهاراتك وإنجاز أعمالك بشكل أسرع.
+    اكتشف أدوات الذكاء الاصطناعي،
+    تعلم الأتمتة، وابدأ مشاريعك التقنية
+    خطوة بخطوة.
   </p>
 
   <a href="#tools" class="btn">
@@ -429,91 +525,169 @@ footer{
 </section>
 
 
+<section>
+
+  <div class="stats">
+
+    <div class="stat">
+      <strong>6+</strong>
+      أداة ذكية
+    </div>
+
+    <div class="stat">
+      <strong>3+</strong>
+      مقالات
+    </div>
+
+    <div class="stat">
+      <strong>4.0</strong>
+      إصدار الموقع
+    </div>
+
+  </div>
+
+</section>
+
+
 <section id="tools">
 
   <div class="title">
-    <h2>🧰 دليل أدوات AI</h2>
-    <p>ابحث واكتشف الأداة المناسبة لك</p>
+
+    <h2>🧰 أدوات الذكاء الاصطناعي</h2>
+
+    <p>
+      اختر أداة واكتشف كيف يمكن أن تساعدك
+    </p>
+
   </div>
 
+
   <div class="search">
+
     <input
       id="search"
       type="text"
       placeholder="🔎 ابحث عن أداة..."
       onkeyup="filterTools()">
+
   </div>
+
 
   <div class="categories">
 
-    <button class="category active" onclick="filterCategory('all',this)">
+    <button
+      class="category active"
+      onclick="filterCategory('all',this)">
       الكل
     </button>
 
-    <button class="category" onclick="filterCategory('writing',this)">
+    <button
+      class="category"
+      onclick="filterCategory('writing',this)">
       ✍️ كتابة
     </button>
 
-    <button class="category" onclick="filterCategory('image',this)">
+    <button
+      class="category"
+      onclick="filterCategory('image',this)">
       🎨 صور
     </button>
 
-    <button class="category" onclick="filterCategory('code',this)">
+    <button
+      class="category"
+      onclick="filterCategory('code',this)">
       💻 برمجة
     </button>
 
-    <button class="category" onclick="filterCategory('automation',this)">
+    <button
+      class="category"
+      onclick="filterCategory('automation',this)">
       ⚙️ أتمتة
     </button>
 
   </div>
 
 
-  <div class="grid" id="toolsGrid">
+  <div class="grid">
 
-    <div class="card tool" data-category="writing" data-name="chatgpt">
+
+    <div class="card tool"
+         data-category="writing"
+         data-name="chatgpt">
 
       <div class="icon">🤖</div>
 
       <h3>ChatGPT</h3>
 
       <p>
-        مساعد ذكي للكتابة والتعلم والبرمجة وتوليد الأفكار.
+        مساعد ذكي للكتابة والتعلم والبرمجة
+        وتوليد الأفكار.
       </p>
 
       <span class="tag">✍️ كتابة</span>
 
-      <br>
+      <div class="card-buttons">
 
-      <button onclick="openTool('ChatGPT','مساعد ذكي يساعدك في الكتابة، التعلم، البرمجة وتوليد الأفكار.')">
-        التفاصيل
-      </button>
+        <a
+          class="visit"
+          href="https://chatgpt.com/"
+          target="_blank">
+          زيارة الأداة
+        </a>
+
+        <button
+          class="details"
+          onclick="openTool(
+          'ChatGPT',
+          'مساعد ذكي للكتابة والتعلم والبرمجة وتوليد الأفكار.')">
+          التفاصيل
+        </button>
+
+      </div>
 
     </div>
 
 
-    <div class="card tool" data-category="image" data-name="canva">
+    <div class="card tool"
+         data-category="image"
+         data-name="canva">
 
       <div class="icon">🎨</div>
 
       <h3>Canva</h3>
 
       <p>
-        إنشاء التصاميم والمنشورات والصور بطريقة سهلة.
+        إنشاء التصاميم والصور والمنشورات
+        بسهولة.
       </p>
 
       <span class="tag">🎨 صور</span>
 
-      <br>
+      <div class="card-buttons">
 
-      <button onclick="openTool('Canva','منصة سهلة لإنشاء التصاميم والمنشورات والصور.')">
-        التفاصيل
-      </button>
+        <a
+          class="visit"
+          href="https://www.canva.com/"
+          target="_blank">
+          زيارة الأداة
+        </a>
+
+        <button
+          class="details"
+          onclick="openTool(
+          'Canva',
+          'منصة لإنشاء التصاميم والصور والمنشورات بسهولة.')">
+          التفاصيل
+        </button>
+
+      </div>
 
     </div>
 
 
-    <div class="card tool" data-category="automation" data-name="zapier">
+    <div class="card tool"
+         data-category="automation"
+         data-name="zapier">
 
       <div class="icon">⚡</div>
 
@@ -525,76 +699,136 @@ footer{
 
       <span class="tag">⚙️ أتمتة</span>
 
-      <br>
+      <div class="card-buttons">
 
-      <button onclick="openTool('Zapier','منصة تساعدك على ربط التطبيقات وإنشاء عمليات أتمتة.')">
-        التفاصيل
-      </button>
+        <a
+          class="visit"
+          href="https://zapier.com/"
+          target="_blank">
+          زيارة الأداة
+        </a>
+
+        <button
+          class="details"
+          onclick="openTool(
+          'Zapier',
+          'منصة لربط التطبيقات وأتمتة المهام المتكررة.')">
+          التفاصيل
+        </button>
+
+      </div>
 
     </div>
 
 
-    <div class="card tool" data-category="code" data-name="github">
+    <div class="card tool"
+         data-category="code"
+         data-name="github">
 
       <div class="icon">💻</div>
 
       <h3>GitHub</h3>
 
       <p>
-        منصة لحفظ المشاريع البرمجية وتطويرها ومشاركتها.
+        حفظ المشاريع البرمجية والتعاون
+        وتطوير الأكواد.
       </p>
 
       <span class="tag">💻 برمجة</span>
 
-      <br>
+      <div class="card-buttons">
 
-      <button onclick="openTool('GitHub','منصة مهمة للمبرمجين لحفظ المشاريع وإدارتها وتطويرها.')">
-        التفاصيل
-      </button>
+        <a
+          class="visit"
+          href="https://github.com/"
+          target="_blank">
+          زيارة المنصة
+        </a>
+
+        <button
+          class="details"
+          onclick="openTool(
+          'GitHub',
+          'منصة للمبرمجين لحفظ المشاريع وإدارة الأكواد والتعاون.')">
+          التفاصيل
+        </button>
+
+      </div>
 
     </div>
 
 
-    <div class="card tool" data-category="writing" data-name="gemini">
+    <div class="card tool"
+         data-category="writing"
+         data-name="gemini">
 
       <div class="icon">🧠</div>
 
       <h3>Gemini</h3>
 
       <p>
-        مساعد ذكاء اصطناعي للبحث والتفكير وإنشاء المحتوى.
+        مساعد ذكي للبحث والتفكير وإنشاء المحتوى.
       </p>
 
       <span class="tag">✍️ كتابة</span>
 
-      <br>
+      <div class="card-buttons">
 
-      <button onclick="openTool('Gemini','مساعد ذكاء اصطناعي من Google للبحث والتفكير وإنشاء المحتوى.')">
-        التفاصيل
-      </button>
+        <a
+          class="visit"
+          href="https://gemini.google.com/"
+          target="_blank">
+          زيارة الأداة
+        </a>
+
+        <button
+          class="details"
+          onclick="openTool(
+          'Gemini',
+          'مساعد ذكاء اصطناعي للبحث والتفكير وإنشاء المحتوى.')">
+          التفاصيل
+        </button>
+
+      </div>
 
     </div>
 
 
-    <div class="card tool" data-category="automation" data-name="make">
+    <div class="card tool"
+         data-category="automation"
+         data-name="make">
 
       <div class="icon">🔧</div>
 
       <h3>Make</h3>
 
       <p>
-        إنشاء عمليات أتمتة وربط الخدمات والتطبيقات.
+        إنشاء عمليات أتمتة وربط الخدمات.
       </p>
 
       <span class="tag">⚙️ أتمتة</span>
 
-      <br>
+      <div class="card-buttons">
 
-      <button onclick="openTool('Make','منصة لإنشاء عمليات أتمتة وربط الخدمات والتطبيقات.')">
-        التفاصيل
-      </button>
+        <a
+          class="visit"
+          href="https://www.make.com/"
+          target="_blank">
+          زيارة الأداة
+        </a>
+
+        <button
+          class="details"
+          onclick="openTool(
+          'Make',
+          'منصة لإنشاء عمليات أتمتة وربط الخدمات والتطبيقات.')">
+          التفاصيل
+        </button>
+
+      </div>
 
     </div>
+
 
   </div>
 
@@ -608,7 +842,7 @@ footer{
     <h2>📝 مقالات Automagy</h2>
 
     <p>
-      تعلم الذكاء الاصطناعي والأتمتة بطريقة بسيطة
+      تعلم بطريقة سهلة وعملية
     </p>
 
   </div>
@@ -616,20 +850,25 @@ footer{
 
   <div class="grid">
 
+
     <div class="article">
 
-      <div class="number">01 — الذكاء الاصطناعي</div>
+      <div class="article-number">
+        المقال 01
+      </div>
 
-      <h3>كيف تبدأ مع AI؟</h3>
+      <h3>
+        🤖 كيف يمكن للذكاء الاصطناعي أن يساعدك؟
+      </h3>
 
       <p>
-        البداية لا تحتاج إلى خبرة كبيرة.
-        تعلم أساسيات الأدوات، جربها في مهامك اليومية،
-        ثم طور مهاراتك بالتدريج.
+        الذكاء الاصطناعي يمكن أن يساعدك
+        في الكتابة والبحث والبرمجة
+        وتنظيم العمل.
       </p>
 
       <a href="#tools" class="read">
-        اكتشف الأدوات →
+        اقرأ المزيد
       </a>
 
     </div>
@@ -637,17 +876,21 @@ footer{
 
     <div class="article">
 
-      <div class="number">02 — الأتمتة</div>
+      <div class="article-number">
+        المقال 02
+      </div>
 
-      <h3>لماذا الأتمتة مهمة؟</h3>
+      <h3>
+        ⚙️ ما هي الأتمتة؟
+      </h3>
 
       <p>
-        عندما تكون لديك مهام متكررة، يمكن للأتمتة
-        أن توفر عليك الكثير من الوقت وتقلل الأخطاء.
+        الأتمتة تساعدك على تحويل المهام
+        المتكررة إلى عمليات تعمل تلقائياً.
       </p>
 
       <a href="#tools" class="read">
-        تعلم أكثر →
+        اقرأ المزيد
       </a>
 
     </div>
@@ -655,20 +898,26 @@ footer{
 
     <div class="article">
 
-      <div class="number">03 — المشاريع</div>
+      <div class="article-number">
+        المقال 03
+      </div>
 
-      <h3>فكرة مشروعك الأول</h3>
+      <h3>
+        🚀 كيف تبدأ مشروعك الأول؟
+      </h3>
 
       <p>
-        اختر مشكلة بسيطة، ابحث عن طريقة لأتمتتها،
-        ثم ابنِ نموذجاً أولياً وطور المشروع تدريجياً.
+        اختر فكرة بسيطة، حدد المشكلة،
+        ثم استخدم الأدوات المناسبة لبناء
+        مشروعك.
       </p>
 
-      <a href="#about" class="read">
-        اكتشف Automagy →
+      <a href="#tools" class="read">
+        ابدأ الآن
       </a>
 
     </div>
+
 
   </div>
 
@@ -680,35 +929,21 @@ footer{
   <div class="about">
 
     <div class="title">
+
       <h2>🌟 عن Automagy</h2>
-      <p>مشروع عربي يتطور خطوة بخطوة</p>
+
+      <p>
+        مشروع عربي يتطور خطوة بخطوة
+      </p>
+
     </div>
 
     <p>
-      Automagy منصة تهدف إلى تقريب الذكاء الاصطناعي
-      والأتمتة من المستخدم العربي، من خلال أدوات مفيدة
-      ومقالات وأفكار مشاريع سهلة الفهم.
+      Automagy منصة عربية تهدف إلى تبسيط
+      عالم الذكاء الاصطناعي والأتمتة،
+      وتقديم أدوات ومقالات وأفكار مشاريع
+      بطريقة سهلة للمبتدئين.
     </p>
-
-
-    <div class="stats">
-
-      <div class="stat">
-        <strong>6+</strong>
-        أدوات
-      </div>
-
-      <div class="stat">
-        <strong>3</strong>
-        مقالات
-      </div>
-
-      <div class="stat">
-        <strong>3.0</strong>
-        الإصدار
-      </div>
-
-    </div>
 
   </div>
 
@@ -722,7 +957,7 @@ footer{
     <h2>🚀 مستعد تبدأ؟</h2>
 
     <p>
-      اكتشف أداة جديدة اليوم وابدأ أول مشروع لك.
+      اختر أداة وابدأ تجربتك الأولى.
     </p>
 
   </div>
@@ -737,17 +972,17 @@ footer{
 <footer>
 
   <p>
-    © 2026 Automagy — جميع الحقوق محفوظة
+    © 2026 Automagy
   </p>
 
   <p>
-    مشروع لتبسيط الذكاء الاصطناعي والأتمتة باللغة العربية.
+    الذكاء الاصطناعي والأتمتة باللغة العربية 🚀
   </p>
 
 </footer>
 
 
-<div class="modal" id="toolModal">
+<div class="modal" id="modal">
 
   <div class="modal-box">
 
@@ -755,7 +990,9 @@ footer{
 
     <p id="modalText"></p>
 
-    <button class="close" onclick="closeTool()">
+    <button
+      class="close"
+      onclick="closeTool()">
       إغلاق
     </button>
 
@@ -766,54 +1003,83 @@ footer{
 
 <script>
 
-let currentCategory = "all";
+let currentCategory="all";
+
+
+function toggleMenu(){
+
+  document
+    .getElementById("nav")
+    .classList.toggle("show");
+
+}
+
+
+document
+  .querySelectorAll("nav a")
+  .forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+      document
+        .getElementById("nav")
+        .classList.remove("show");
+
+    });
+
+  });
 
 
 function filterTools(){
 
-  const search =
-    document.getElementById("search")
-    .value
-    .toLowerCase();
+  let search=
+    document
+      .getElementById("search")
+      .value
+      .toLowerCase();
 
-  const tools =
-    document.querySelectorAll(".tool");
+  document
+    .querySelectorAll(".tool")
+    .forEach(function(tool){
 
-  tools.forEach(function(tool){
+      let text=
+        tool.innerText.toLowerCase();
 
-    const name =
-      tool.dataset.name.toLowerCase();
+      let category=
+        tool.dataset.category;
 
-    const category =
-      tool.dataset.category;
+      let searchMatch=
+        text.includes(search);
 
-    const matchesSearch =
-      name.includes(search) ||
-      tool.innerText.toLowerCase().includes(search);
+      let categoryMatch=
+        currentCategory==="all" ||
+        category===currentCategory;
 
-    const matchesCategory =
-      currentCategory === "all" ||
-      category === currentCategory;
+      if(searchMatch && categoryMatch){
 
-    if(matchesSearch && matchesCategory){
-      tool.style.display = "block";
-    }else{
-      tool.style.display = "none";
-    }
+        tool.style.display="block";
 
-  });
+      }else{
+
+        tool.style.display="none";
+
+      }
+
+    });
 
 }
 
 
 function filterCategory(category,button){
 
-  currentCategory = category;
+  currentCategory=category;
 
   document
     .querySelectorAll(".category")
     .forEach(function(btn){
+
       btn.classList.remove("active");
+
     });
 
   button.classList.add("active");
@@ -825,33 +1091,39 @@ function filterCategory(category,button){
 
 function openTool(title,text){
 
-  document.getElementById("modalTitle").innerText =
-    title;
+  document
+    .getElementById("modalTitle")
+    .innerText=title;
 
-  document.getElementById("modalText").innerText =
-    text;
+  document
+    .getElementById("modalText")
+    .innerText=text;
 
-  document.getElementById("toolModal").style.display =
-    "flex";
+  document
+    .getElementById("modal")
+    .style.display="flex";
 
 }
 
 
 function closeTool(){
 
-  document.getElementById("toolModal").style.display =
-    "none";
+  document
+    .getElementById("modal")
+    .style.display="none";
 
 }
 
 
-window.onclick = function(event){
+window.onclick=function(event){
 
-  const modal =
-    document.getElementById("toolModal");
+  let modal=
+    document.getElementById("modal");
 
-  if(event.target === modal){
+  if(event.target===modal){
+
     closeTool();
+
   }
 
 };
@@ -859,4 +1131,4 @@ window.onclick = function(event){
 </script>
 
 </body>
-</html>
+    </html>
