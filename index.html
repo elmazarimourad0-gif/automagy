@@ -482,7 +482,61 @@ footer{
 }
 </style>
 </head>
+<style>
+/* ✨ لمسة احترافية للموقع */
+.hero {
+  animation: fadeIn 1s ease-in-out;
+}
 
+.card,
+.tool-card,
+.article-card {
+  transition: transform .3s ease, box-shadow .3s ease;
+  border-radius: 18px;
+}
+
+.card:hover,
+.tool-card:hover,
+.article-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(56,189,248,.18);
+}
+
+button,
+.btn {
+  transition: all .3s ease;
+}
+
+button:hover,
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(56,189,248,.25);
+}
+
+a {
+  transition: color .25s ease;
+}
+
+a:hover {
+  color: #38bdf8 !important;
+}
+
+::selection {
+  background: #38bdf8;
+  color: #08111f;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+  </style>
 <body>
 
 <header>
